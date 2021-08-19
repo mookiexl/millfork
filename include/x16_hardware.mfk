@@ -8,11 +8,22 @@ import x16/vera_9
 #endif
 
 inline asm void set_ram_bank(byte register(a) bank) {
-    ! STA $9F61
+    ! STA $00
     ? RTS
 }
 
 inline asm void set_rom_bank(byte register(a) bank) {
-    ! STA $9F60
+    ! STA $01
     ? RTS
 }
+
+inline asm byte get_ram_bank() {
+    ! LDA $00
+    ? RTS
+}
+
+inline asm byte get_rom_bank() {
+    ! LDA $01
+    ? RTS
+}
+
